@@ -25,7 +25,6 @@ export default function App() {
   
   // Theme and UI accessibility mode state
   const [currentTheme, setCurrentTheme] = useState<ThemeMode>('cyber');
-  const [isPlainEnglish, setIsPlainEnglish] = useState<boolean>(false);
   const [isHowItWorksOpen, setIsHowItWorksOpen] = useState<boolean>(false);
   const [isThemeSettingsOpen, setIsThemeSettingsOpen] = useState<boolean>(false);
 
@@ -81,8 +80,6 @@ export default function App() {
         {showIntro && (
           <IntroLoadingAnimation
             onComplete={() => setShowIntro(false)}
-            isPlainEnglish={isPlainEnglish}
-            onTogglePlainEnglish={() => setIsPlainEnglish((prev) => !prev)}
           />
         )}
       </AnimatePresence>
@@ -103,8 +100,6 @@ export default function App() {
         onOpenSimulation={() => setActiveTab('simulation')}
         onOpenHowItWorks={() => setIsHowItWorksOpen(true)}
         onOpenThemeSettings={() => setIsThemeSettingsOpen(true)}
-        isPlainEnglish={isPlainEnglish}
-        onTogglePlainEnglish={() => setIsPlainEnglish((prev) => !prev)}
         currentTheme={currentTheme}
         onSelectTheme={(t) => setCurrentTheme(t)}
         onReplayIntro={() => setShowIntro(true)}
@@ -123,7 +118,6 @@ export default function App() {
                 setSelectedIncident(inc);
                 setActiveTab('investigation');
               }}
-              isPlainEnglish={isPlainEnglish}
               onReplayIntro={() => setShowIntro(true)}
             />
             <IntelligenceBentoGrid
@@ -131,7 +125,6 @@ export default function App() {
               onSelectIncident={setSelectedIncident}
               onOpenInvestigation={() => setActiveTab('investigation')}
               onOpenAnalytics={() => setActiveTab('analytics')}
-              isPlainEnglish={isPlainEnglish}
             />
           </>
         )}
@@ -139,7 +132,6 @@ export default function App() {
         {activeTab === 'satellite' && (
           <SatelliteAnalysisView
             onTransferToInvestigation={handleTransferSatelliteToInvestigation}
-            isPlainEnglish={isPlainEnglish}
           />
         )}
 
@@ -149,7 +141,6 @@ export default function App() {
             selectedIncident={selectedIncident}
             onSelectIncident={setSelectedIncident}
             onGenerateDossier={handleOpenDossier}
-            isPlainEnglish={isPlainEnglish}
           />
         )}
 
@@ -157,19 +148,17 @@ export default function App() {
           <AnalyticsDashboard
             incidents={incidents}
             selectedIncident={selectedIncident}
-            isPlainEnglish={isPlainEnglish}
           />
         )}
 
         {activeTab === 'system' && (
-          <SystemStatus isPlainEnglish={isPlainEnglish} />
+          <SystemStatus />
         )}
 
         {activeTab === 'simulation' && (
           <SimulationStudio
             onInjectCustomIncident={handleInjectCustomIncident}
             onOpenInvestigation={() => setActiveTab('investigation')}
-            isPlainEnglish={isPlainEnglish}
           />
         )}
       </main>
@@ -177,7 +166,6 @@ export default function App() {
       {/* Persistent Footer */}
       <Footer
         onOpenHowItWorks={() => setIsHowItWorksOpen(true)}
-        isPlainEnglish={isPlainEnglish}
         onSelectTab={setActiveTab}
       />
 
@@ -187,7 +175,6 @@ export default function App() {
         onClose={() => setDossierState({ isOpen: false, incident: null, vessel: null })}
         incident={dossierState.incident}
         vessel={dossierState.vessel}
-        isPlainEnglish={isPlainEnglish}
       />
 
       <AiAnalystDrawer
@@ -200,7 +187,6 @@ export default function App() {
       <HowItWorksModal
         isOpen={isHowItWorksOpen}
         onClose={() => setIsHowItWorksOpen(false)}
-        isPlainEnglish={isPlainEnglish}
         onOpenDemo={() => {
           setIsHowItWorksOpen(false);
           setActiveTab('investigation');
@@ -212,8 +198,6 @@ export default function App() {
         onClose={() => setIsThemeSettingsOpen(false)}
         currentTheme={currentTheme}
         onSelectTheme={setCurrentTheme}
-        isPlainEnglish={isPlainEnglish}
-        onTogglePlainEnglish={() => setIsPlainEnglish((prev) => !prev)}
       />
 
     </div>

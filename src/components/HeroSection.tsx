@@ -8,7 +8,6 @@ interface HeroSectionProps {
   incidents: SpillIncident[];
   selectedIncident: SpillIncident;
   onSelectIncident: (inc: SpillIncident) => void;
-  isPlainEnglish?: boolean;
   onReplayIntro?: () => void;
 }
 
@@ -18,7 +17,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   incidents,
   selectedIncident,
   onSelectIncident,
-  isPlainEnglish = false,
   onReplayIntro,
 }) => {
 
@@ -63,32 +61,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00f2ff]/30 bg-[#00f2ff]/10 mb-2">
           <span className="w-2 h-2 rounded-full bg-[#00f2ff] animate-pulse"></span>
           <span className="font-mono-data text-[11px] text-[#00f2ff] uppercase tracking-widest font-semibold">
-            {isPlainEnglish ? '24/7 Ocean Satellite Monitoring Active' : 'Global Surveillance Active'}
+            Global Surveillance Active
           </span>
         </div>
 
         {/* Display Heading */}
         <h1 className="text-3xl sm:text-5xl lg:text-[48px] font-bold text-[#dee2f4] uppercase tracking-tight max-w-4xl drop-shadow-xl leading-tight sm:leading-[56px] font-sans">
-          {isPlainEnglish ? (
-            <>
-              Find Oil Spills in the Ocean.<br />
-              <span className="text-[#00f2ff] drop-shadow-[0_0_20px_rgba(0,242,255,0.4)]">Rewind Ocean Currents.</span><br />
-              Catch the Exact Ship Responsible.
-            </>
-          ) : (
             <>
               OILTRACE AI: See the spill.<br />
               <span className="text-[#00f2ff] drop-shadow-[0_0_20px_rgba(0,242,255,0.4)]">Trace the drift.</span><br />
               Identify the vessel.
             </>
-          )}
         </h1>
 
         {/* Lead Description */}
         <p className="text-base sm:text-lg text-[#b9cacb] max-w-2xl leading-relaxed font-sans font-normal">
-          {isPlainEnglish
-            ? 'When ships dump oily waste at sea at night to save money, our radar satellites detect the slick, trace back where the oil came from using ocean current simulations, and match ship GPS tracks to generate proof for court.'
-            : 'AI-powered satellite intelligence for marine oil-spill detection, drift reconstruction and evidence-based vessel attribution. Engineered for high-stakes maritime surveillance.'}
+          AI-powered satellite intelligence for marine oil-spill detection, drift reconstruction and evidence-based vessel attribution. Engineered for high-stakes maritime surveillance.
         </p>
 
         {/* Interactive Action Buttons */}
@@ -98,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="btn-primary px-8 py-4 rounded-xl text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5 group w-full sm:w-auto min-w-[240px] cursor-pointer shadow-lg font-bold"
           >
             <Rocket className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5 text-[#002022]" />
-            <span>{isPlainEnglish ? 'Start Live Radar Investigation' : 'Launch Investigation'}</span>
+            <span>Launch Investigation</span>
           </button>
 
           <button
@@ -106,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="btn-ghost px-8 py-4 rounded-xl text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5 group w-full sm:w-auto min-w-[240px] bg-[#0e1320]/80 border border-[#3a494b] backdrop-blur-sm cursor-pointer hover:border-[#00f2ff]"
           >
             <Compass className="w-5 h-5 group-hover:rotate-45 transition-transform text-[#00f2ff]" />
-            <span>{isPlainEnglish ? 'See Live Global Dashboard' : 'Explore Demo'}</span>
+            <span>Explore Demo</span>
           </button>
 
           {onReplayIntro && (
@@ -116,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               title="Replay the high-tech satellite boot animation"
             >
               <Zap className="w-4 h-4 text-[#00f2ff]" />
-              <span>{isPlainEnglish ? 'Replay Intro Animation' : 'Replay Intro'}</span>
+              <span>Replay Intro</span>
             </button>
           )}
         </div>
@@ -125,7 +113,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="w-full pt-4 mt-2">
           <div className="text-[11px] font-mono-data text-[#849495] uppercase tracking-wider mb-2.5 flex items-center justify-center gap-2">
             <Radio className="w-3.5 h-3.5 text-[#00f2ff] animate-pulse" />
-            <span>{isPlainEnglish ? 'Select an active oil spill case to inspect:' : 'Active SAR Satellite Ingestion Targets:'}</span>
+            <span>Select an active oil spill case to inspect:</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {incidents.map((inc) => {

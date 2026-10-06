@@ -30,13 +30,11 @@ import { SpillIncident } from '../types';
 interface AnalyticsDashboardProps {
   incidents: SpillIncident[];
   selectedIncident: SpillIncident;
-  isPlainEnglish?: boolean;
 }
 
 export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
   incidents,
   selectedIncident,
-  isPlainEnglish = false,
 }) => {
 
   // Metocean hindcast trajectory points data
@@ -85,26 +83,24 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00f2ff]/30 bg-[#00f2ff]/10 text-xs font-mono-data text-[#00f2ff] uppercase tracking-wider mb-2 font-bold">
             <Activity className="w-3.5 h-3.5" />
-            <span>{isPlainEnglish ? 'Global Evidence & Performance Metrics' : 'Operational Metocean & SAR Analytics'}</span>
+            <span>Operational Metocean & SAR Analytics</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-[#dee2f4]">
-            {isPlainEnglish ? 'Oil Drift & Ship Proof Charts' : 'Forensic Telemetry & Hydrodynamics'}
+            Forensic Telemetry & Hydrodynamics
           </h1>
           <p className="text-sm text-[#b9cacb] mt-1 max-w-3xl">
-            {isPlainEnglish
-              ? 'These charts verify how the oil spread over time, prove the radar signal was real petroleum (not harmless algae), and record the exact second the suspect ship slowed down to dump waste.'
-              : 'Quantitative analysis of Bragg wave attenuation, wind-driven surface drift, and vessel telemetry anomalies.'}
+            Quantitative analysis of Bragg wave attenuation, wind-driven surface drift, and vessel telemetry anomalies.'
           </p>
         </div>
 
         {/* Global Summary Metric Chips */}
         <div className="flex flex-wrap items-center gap-3">
           <div className="p-3 rounded-xl bg-[#161b28] border border-[#3a494b] font-mono-data text-xs shadow-md">
-            <div className="text-[#849495] text-[10px] uppercase font-bold">{isPlainEnglish ? 'COURT CONVICTION RATE' : 'GLOBAL ATTRIBUTION SLA'}</div>
+            <div className="text-[#849495] text-[10px] uppercase font-bold">GLOBAL ATTRIBUTION SLA</div>
             <div className="text-emerald-400 font-bold text-lg">94.2% Success</div>
           </div>
           <div className="p-3 rounded-xl bg-[#161b28] border border-[#3a494b] font-mono-data text-xs shadow-md">
-            <div className="text-[#849495] text-[10px] uppercase font-bold">{isPlainEnglish ? 'TOTAL OIL MONITORED' : 'TOTAL DISCHARGE'}</div>
+            <div className="text-[#849495] text-[10px] uppercase font-bold">TOTAL DISCHARGE'</div>
             <div className="text-[#00f2ff] font-bold text-lg">12,310 BBL</div>
           </div>
         </div>
@@ -119,12 +115,10 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
             <div>
               <h3 className="text-sm sm:text-base font-bold text-[#dee2f4] uppercase font-mono-data flex items-center gap-2">
                 <Waves className="w-4 h-4 text-[#00f2ff]" />
-                {isPlainEnglish ? '1. Oil Drift Distance vs. Spill Area Growth' : 'Drift Distance vs. Slick Expansion (Lagrangian Model)'}
+                Drift Distance vs. Slick Expansion (Lagrangian Model)
               </h3>
               <p className="text-xs text-[#849495] mt-1">
-                {isPlainEnglish
-                  ? 'Shows how the oil expanded and moved across the ocean from the time of dump (T-10h) to now (T-0h)'
-                  : 'Coupled Stokes drift, Ekman surface currents, and atmospheric wind shear progression'}
+                Coupled Stokes drift, Ekman surface currents, and atmospheric wind shear progression
               </p>
             </div>
             <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono-data bg-[#00f2ff]/10 text-[#00f2ff] border border-[#00f2ff]/30 font-bold">
@@ -148,8 +142,8 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                   contentStyle={{ backgroundColor: '#161b28', borderColor: '#3a494b', borderRadius: '8px', color: '#dee2f4', fontFamily: 'JetBrains Mono', fontSize: '11px' }}
                 />
                 <Legend wrapperStyle={{ fontFamily: 'JetBrains Mono', fontSize: '11px', paddingTop: '10px' }} />
-                <Area type="monotone" dataKey="slickAreaKm2" name={isPlainEnglish ? 'Slick Size (km²)' : 'Slick Area (km²)'} stroke="#00f2ff" fillOpacity={1} fill="url(#areaColor)" />
-                <Line type="monotone" dataKey="driftDistNm" name={isPlainEnglish ? 'Distance Traveled (Nautical Miles)' : 'Drift Distance (NM)'} stroke="#ef4444" strokeWidth={2} dot={{ r: 4 }} />
+                <Area type="monotone" dataKey="slickAreaKm2" name="Slick Area (km²)" stroke="#00f2ff" fillOpacity={1} fill="url(#areaColor)" />
+                <Line type="monotone" dataKey="driftDistNm" name="Drift Distance (NM)" stroke="#ef4444" strokeWidth={2} dot={{ r: 4 }} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -161,12 +155,10 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
             <div>
               <h3 className="text-sm sm:text-base font-bold text-[#dee2f4] uppercase font-mono-data flex items-center gap-2">
                 <Radio className="w-4 h-4 text-[#00f2ff]" />
-                {isPlainEnglish ? '2. Real Petroleum Proof vs. Harmless Algae' : 'SAR Polarimetric Backscatter Damping (dB)'}
+                SAR Polarimetric Backscatter Damping (dB)
               </h3>
               <p className="text-xs text-[#849495] mt-1">
-                {isPlainEnglish
-                  ? 'Radar waves bounce off mineral crude oil differently than algae, mathematically confirming heavy fuel oil'
-                  : 'Negative backscatter depression against ambient sea surface distinguishes petroleum from natural slicks'}
+                Negative backscatter depression against ambient sea surface distinguishes petroleum from natural slicks
               </p>
             </div>
             <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono-data bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-bold">
@@ -184,10 +176,10 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                   contentStyle={{ backgroundColor: '#161b28', borderColor: '#3a494b', borderRadius: '8px', color: '#dee2f4', fontFamily: 'JetBrains Mono', fontSize: '11px' }}
                 />
                 <Legend wrapperStyle={{ fontFamily: 'JetBrains Mono', fontSize: '11px', paddingTop: '10px' }} />
-                <Bar dataKey="cleanSea" name={isPlainEnglish ? 'Clean Ocean Water' : 'Clean Sea Surface (dB)'} fill="#3a494b" />
-                <Bar dataKey="biogenicFilm" name={isPlainEnglish ? 'Harmless Algae' : 'Biogenic Algae Film (dB)'} fill="#00fa91" />
-                <Bar dataKey="mineralCrude" name={isPlainEnglish ? 'Crude Oil' : 'Crude Petroleum (dB)'} fill="#00f2ff" />
-                <Bar dataKey="heavyHFO" name={isPlainEnglish ? 'Illegal Heavy Fuel Slop' : 'Heavy Fuel Slop (dB)'} fill="#ef4444" />
+                <Bar dataKey="cleanSea" name="Clean Sea Surface (dB)" fill="#3a494b" />
+                <Bar dataKey="biogenicFilm" name="Biogenic Algae Film (dB)" fill="#00fa91" />
+                <Bar dataKey="mineralCrude" name="Crude Oil" fill="#00f2ff" />
+                <Bar dataKey="heavyHFO" name="Heavy Fuel Slop (dB)" fill="#ef4444" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -199,12 +191,10 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
             <div>
               <h3 className="text-sm sm:text-base font-bold text-[#dee2f4] uppercase font-mono-data flex items-center gap-2">
                 <Gauge className="w-4 h-4 text-red-400" />
-                {isPlainEnglish ? '3. Suspect Ship Speed Drop & Tank Discharge Time' : 'Suspect AIS Kinematics & Slop Tank Discharge Anomaly'}
+                Suspect AIS Kinematics & Slop Tank Discharge Anomaly
               </h3>
               <p className="text-xs text-[#849495] mt-1">
-                {isPlainEnglish
-                  ? 'Red dashed spike at 08:15Z shows the exact moment the ship slowed down to 9.8 kts to pump bilge waste overboard'
-                  : 'Correlation of sudden vessel deceleration with hydrostatic draft decrease'}
+                Correlation of sudden vessel deceleration with hydrostatic draft decrease
               </p>
             </div>
             <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono-data bg-red-950 text-red-300 border border-red-500/40 font-bold">
@@ -223,8 +213,8 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                   contentStyle={{ backgroundColor: '#161b28', borderColor: '#3a494b', borderRadius: '8px', color: '#dee2f4', fontFamily: 'JetBrains Mono', fontSize: '11px' }}
                 />
                 <Legend wrapperStyle={{ fontFamily: 'JetBrains Mono', fontSize: '11px', paddingTop: '10px' }} />
-                <Line yAxisId="left" type="monotone" dataKey="speedKnots" name={isPlainEnglish ? 'Ship Speed (Knots)' : 'Vessel Speed (Knots)'} stroke="#00f2ff" strokeWidth={2.5} dot={{ r: 4 }} />
-                <Line yAxisId="right" type="monotone" dataKey="dischargeDetected" name={isPlainEnglish ? 'Discharge Probability (%)' : 'Discharge Probability Index (%)'} stroke="#ef4444" strokeWidth={2} strokeDasharray="3 3" dot={{ r: 5, fill: '#ef4444' }} />
+                <Line yAxisId="left" type="monotone" dataKey="speedKnots" name="Vessel Speed (Knots)" stroke="#00f2ff" strokeWidth={2.5} dot={{ r: 4 }} />
+                <Line yAxisId="right" type="monotone" dataKey="dischargeDetected" name="Discharge Probability Index (%)" stroke="#ef4444" strokeWidth={2} strokeDasharray="3 3" dot={{ r: 5, fill: '#ef4444' }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -236,12 +226,10 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
             <div>
               <h3 className="text-sm sm:text-base font-bold text-[#dee2f4] uppercase font-mono-data flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                {isPlainEnglish ? '4. High-Risk Sea Lanes & Catch Rates' : 'Regional EEZ Risk & Attribution Accuracy'}
+                Regional EEZ Risk & Attribution Accuracy
               </h3>
               <p className="text-xs text-[#849495] mt-1">
-                {isPlainEnglish
-                  ? 'Accuracy rate of catching polluters across the world’s busiest maritime shipping chokepoints'
-                  : 'Historical attribution compliance rate and detected spill volume across major shipping lanes'}
+                Historical attribution compliance rate and detected spill volume across major shipping lanes
               </p>
             </div>
             <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono-data bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-bold">
@@ -259,8 +247,8 @@ export const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                   contentStyle={{ backgroundColor: '#161b28', borderColor: '#3a494b', borderRadius: '8px', color: '#dee2f4', fontFamily: 'JetBrains Mono', fontSize: '11px' }}
                 />
                 <Legend wrapperStyle={{ fontFamily: 'JetBrains Mono', fontSize: '11px', paddingTop: '10px' }} />
-                <Bar dataKey="spillsDetected" name={isPlainEnglish ? 'Spills Caught' : 'Spill Incidents Detected'} fill="#00dbe7" />
-                <Bar dataKey="attributedRate" name={isPlainEnglish ? 'Attribution Success Rate (%)' : 'Attribution Accuracy (%)'} fill="#00fa91" />
+                <Bar dataKey="spillsDetected" name="Spill Incidents Detected" fill="#00dbe7" />
+                <Bar dataKey="attributedRate" name="Attribution Success Rate (%)" fill="#00fa91" />
               </BarChart>
             </ResponsiveContainer>
           </div>

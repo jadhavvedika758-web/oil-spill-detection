@@ -4,13 +4,11 @@ import { HelpCircle, Shield, Satellite, Radio } from 'lucide-react';
 
 interface FooterProps {
   onOpenHowItWorks?: () => void;
-  isPlainEnglish?: boolean;
   onSelectTab?: (tab: NavTabType) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onOpenHowItWorks,
-  isPlainEnglish = false,
   onSelectTab,
 }) => {
   return (
@@ -27,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({
             className="hover:text-[#00f2ff] transition-colors cursor-pointer flex items-center gap-1.5 text-[#94a3b8]"
           >
             <HelpCircle className="w-3.5 h-3.5 text-[#00f2ff]" />
-            <span>{isPlainEnglish ? 'How It Works Guide' : 'System Architecture'}</span>
+            <span>System Architecture</span>
           </button>
         )}
         {onSelectTab && (

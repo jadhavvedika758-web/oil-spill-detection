@@ -87,7 +87,6 @@ interface InvestigationMapProps {
   selectedVessel: CorrelatedVessel | null;
   onSelectVessel: (vessel: CorrelatedVessel) => void;
   timelineProgress: number; // 0.0 (origin) to 1.0 (detection)
-  isPlainEnglish?: boolean;
 }
 
 export const InvestigationMap: React.FC<InvestigationMapProps> = ({
@@ -95,7 +94,6 @@ export const InvestigationMap: React.FC<InvestigationMapProps> = ({
   selectedVessel,
   onSelectVessel,
   timelineProgress,
-  isPlainEnglish = false,
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);

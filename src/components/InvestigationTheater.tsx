@@ -44,7 +44,6 @@ interface InvestigationTheaterProps {
   onSelectIncident: (inc: SpillIncident) => void;
   onGenerateDossier: (incident: SpillIncident, vessel: CorrelatedVessel) => void;
   onOpenCopilot?: (initialQuery?: string) => void;
-  isPlainEnglish?: boolean;
 }
 
 export const InvestigationTheater: React.FC<InvestigationTheaterProps> = ({
@@ -53,7 +52,6 @@ export const InvestigationTheater: React.FC<InvestigationTheaterProps> = ({
   onSelectIncident,
   onGenerateDossier,
   onOpenCopilot,
-  isPlainEnglish = false,
 }) => {
   // Timeline scrubber progress (0.0 = Spill origin T-hindcast, 1.0 = Detected time T-0)
   const [timelineProgress, setTimelineProgress] = useState<number>(1.0);
@@ -236,7 +234,6 @@ export const InvestigationTheater: React.FC<InvestigationTheaterProps> = ({
               setIsExplainDrawerOpen(true);
             }}
             timelineProgress={timelineProgress}
-            isPlainEnglish={isPlainEnglish}
           />
 
           {/* Timeline & Hindcast Drift Scrubber Controls */}
@@ -567,7 +564,6 @@ export const InvestigationTheater: React.FC<InvestigationTheaterProps> = ({
           setInvestigationStatus('CORRELATED');
         }}
         onOpenReport={() => setIsReportModalOpen(true)}
-        isPlainEnglish={isPlainEnglish}
       />
 
       {/* Investigation Report Modal */}

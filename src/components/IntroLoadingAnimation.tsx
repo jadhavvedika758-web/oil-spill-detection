@@ -19,13 +19,11 @@ import {
 
 interface IntroLoadingAnimationProps {
   onComplete: () => void;
-  isPlainEnglish?: boolean;
   onTogglePlainEnglish?: () => void;
 }
 
 export const IntroLoadingAnimation: React.FC<IntroLoadingAnimationProps> = ({
   onComplete,
-  isPlainEnglish = false,
   onTogglePlainEnglish,
 }) => {
   const [progress, setProgress] = useState(0);
@@ -90,18 +88,12 @@ export const IntroLoadingAnimation: React.FC<IntroLoadingAnimationProps> = ({
     }
   };
 
-  const steps = isPlainEnglish ? [
+  const steps = [
     { label: 'Connecting to Ocean Radar Satellites...', sub: 'Acquiring Sentinel-1 & RADARSAT Low Earth Orbits', target: 20 },
     { label: 'Scanning Ocean Sea Surface from Space...', sub: 'Detecting oily sheen damping natural ocean waves', target: 45 },
     { label: 'Rewinding Ocean Currents & Wind Vectors...', sub: 'Hydrodynamic model back-traces spill to origin point', target: 70 },
     { label: 'Tracking Vessel GPS & Tank Levels...', sub: 'Matching ship routes with nighttime dump timestamps', target: 90 },
     { label: 'Orbital Descent Synchronized', sub: 'Evidence dossier engine armed and ready for courtroom proof', target: 100 }
-  ] : [
-    { label: 'INITIALIZING LOW EARTH ORBIT SATELLITES...', sub: 'Sentinel-1 C-Band SAR & RADARSAT-2 Constellation Downlink', target: 20 },
-    { label: 'POLARIMETRIC BACKSCATTER SPECTRUM ANALYSIS...', sub: 'Bragg wave damping depression (-18.7 dB) isolated in North Sea', target: 45 },
-    { label: 'COMPUTING 4D LAGRANGIAN HYDRODYNAMICS...', sub: 'ECMWF ERA5 wind boundary layer & HYCOM oceanic hindcast', target: 70 },
-    { label: 'CORRELATING AIS KINEMATICS & TANK SIGNALS...', sub: 'Flagged vessel speed anomaly & sudden hydrostatic draft loss', target: 90 },
-    { label: 'FORENSIC SURVEILLANCE MATRIX ENGAGED', sub: 'UNCLOS / MARPOL Annex I Admiralty brief engine ready', target: 100 }
   ];
 
   const handleFinish = () => {
@@ -680,20 +672,6 @@ export const IntroLoadingAnimation: React.FC<IntroLoadingAnimationProps> = ({
 
         {/* Top Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {onTogglePlainEnglish && (
-            <button
-              onClick={onTogglePlainEnglish}
-              className={`px-3 py-1.5 rounded-xl border text-xs font-mono-data transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md ${
-                isPlainEnglish
-                  ? 'bg-[#00f2ff]/20 text-[#00f2ff] border-[#00f2ff] shadow-[0_0_12px_rgba(0,242,255,0.3)]'
-                  : 'bg-[#0b1220]/80 text-[#94a3b8] hover:text-[#dee2f4] border-[#2a3b50]'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{isPlainEnglish ? 'Plain English: ON' : 'Plain English'}</span>
-            </button>
-          )}
-
           <button
             onClick={() => {
               setSoundEnabled(!soundEnabled);
@@ -713,7 +691,7 @@ export const IntroLoadingAnimation: React.FC<IntroLoadingAnimationProps> = ({
             onClick={handleFinish}
             className="px-5 py-2 rounded-xl bg-gradient-to-r from-[#00dbe7] via-[#00f2ff] to-[#74f5ff] text-[#002022] font-mono-data text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(0,242,255,0.6)] hover:brightness-110 cursor-pointer"
           >
-            <span>{isPlainEnglish ? 'Enter Dashboard' : 'Engage Descent'}</span>
+            <span>Enter Dashboard</span>
             <Rocket className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -780,7 +758,7 @@ export const IntroLoadingAnimation: React.FC<IntroLoadingAnimationProps> = ({
             onClick={handleFinish}
             className="mt-6 w-full py-2.5 rounded-xl bg-[#121d30] hover:bg-[#1a2b48] border border-[#00f2ff]/40 hover:border-[#00f2ff] text-xs font-mono-data uppercase font-bold text-[#00f2ff] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md"
           >
-            <span>{isPlainEnglish ? 'Ready! Click to Open Dashboard' : 'Orbital Lock Complete • Launch Investigation'}</span>
+            <span>Orbital Lock Complete • Launch Investigation</span>
             <FastForward className="w-3.5 h-3.5" />
           </button>
         </div>

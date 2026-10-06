@@ -15,11 +15,7 @@ import {
 } from 'lucide-react';
 import { SATELLITE_MISSIONS } from '../data/mockIncidents';
 
-interface SystemStatusProps {
-  isPlainEnglish?: boolean;
-}
-
-export const SystemStatus: React.FC<SystemStatusProps> = ({ isPlainEnglish = false }) => {
+export const SystemStatus: React.FC = () => {
   const [logs, setLogs] = useState<string[]>([
 
     '[22:54:12 UTC] SENTINEL-1A downlinked 4.2 GB Level-1 GRD SAR frame for North Sea Sector 4.',

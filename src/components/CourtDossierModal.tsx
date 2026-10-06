@@ -19,15 +19,12 @@ interface CourtDossierModalProps {
   incident: SpillIncident | null;
   vessel: CorrelatedVessel | null;
   onClose: () => void;
-  isPlainEnglish?: boolean;
 }
 
 export const CourtDossierModal: React.FC<CourtDossierModalProps> = ({
   isOpen = false,
   incident,
   vessel,
-  onClose,
-  isPlainEnglish = false,
 }) => {
   const [dossier, setDossier] = useState<IncidentDossier | null>(null);
   const [loading, setLoading] = useState(true);
@@ -109,14 +106,14 @@ ${dossier.actionItems?.map((a) => `- ${a}`).join('\n')}
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono-data text-[#00f2ff] uppercase tracking-wider font-bold">
-                  {isPlainEnglish ? 'LEGAL EVIDENCE BRIEF FOR MARITIME POLICE & COURT' : 'COURT-ADMISSIBLE ADMIRALTY EVIDENCE BRIEF'}
+                  LEGAL EVIDENCE BRIEF FOR MARITIME POLICE & COURT
                 </span>
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-mono-data bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-bold">
                   MARPOL ANNEX I
                 </span>
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-[#dee2f4]">
-                {isPlainEnglish ? `Official Polluter Report: ${vessel.name}` : `Pollution Attribution Dossier: ${vessel.name}`}
+                Official Polluter Report: ${vessel.name}
               </h2>
             </div>
           </div>
@@ -134,9 +131,7 @@ ${dossier.actionItems?.map((a) => `- ${a}`).join('\n')}
           <div className="py-16 flex flex-col items-center justify-center text-center space-y-3">
             <Sparkles className="w-8 h-8 text-[#00f2ff] animate-spin" />
             <p className="text-sm font-mono-data text-[#dee2f4]">
-              {isPlainEnglish 
-                ? 'Gathering radar photos, ocean drift calculations, and ship GPS track proof...'
-                : 'Compiling satellite SAR polarimetric data, hydrodynamic hindcast paths, and AIS telemetry into cryptographic brief...'}
+              Compiling satellite SAR polarimetric data, hydrodynamic hindcast paths, and AIS telemetry into cryptographic brief...
             </p>
           </div>
         ) : dossier ? (
@@ -145,15 +140,15 @@ ${dossier.actionItems?.map((a) => `- ${a}`).join('\n')}
             {/* Top Cryptographic Header */}
             <div className="p-3.5 rounded-xl bg-[#1a1f2d] border border-[#3a494b] grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
-                <div className="text-[9px] text-[#849495] uppercase font-bold">{isPlainEnglish ? 'CASE NUMBER' : 'DOSSIER REF ID'}</div>
+                <div className="text-[9px] text-[#849495] uppercase font-bold">CASE NUMBER</div>
                 <div className="text-[#00f2ff] font-bold text-xs">{dossier.dossierId}</div>
               </div>
               <div>
-                <div className="text-[9px] text-[#849495] uppercase font-bold">{isPlainEnglish ? 'DIGITAL TAMPER-PROOF HASH' : 'CHAIN OF CUSTODY HASH'}</div>
+                <div className="text-[9px] text-[#849495] uppercase font-bold">DIGITAL TAMPER-PROOF HASH</div>
                 <div className="text-emerald-400 font-bold text-[10px] truncate">{dossier.chainOfCustodyHash}</div>
               </div>
               <div>
-                <div className="text-[9px] text-[#849495] uppercase font-bold">{isPlainEnglish ? 'GUILT PROBABILITY' : 'ATTRIBUTION CERTAINTY'}</div>
+                <div className="text-[9px] text-[#849495] uppercase font-bold">ATTRIBUTION CERTAINTY</div>
                 <div className="text-red-400 font-bold text-sm">{dossier.confidenceScore}% (MATCH CONFIRMED)</div>
               </div>
             </div>

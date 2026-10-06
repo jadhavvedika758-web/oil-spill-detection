@@ -22,12 +22,10 @@ import { CvDetectionMetrics, SpillIncident } from '../types';
 
 interface SatelliteAnalysisViewProps {
   onTransferToInvestigation: (customIncident: Partial<SpillIncident>) => void;
-  isPlainEnglish?: boolean;
 }
 
 export const SatelliteAnalysisView: React.FC<SatelliteAnalysisViewProps> = ({
   onTransferToInvestigation,
-  isPlainEnglish = false,
 }) => {
   const [selectedScene, setSelectedScene] = useState<SarTestScene>(PRELOADED_SAR_SCENES[0]);
   const [activeViewerTab, setActiveViewerTab] = useState<'ORIGINAL' | 'PREPROCESSED' | 'MASK' | 'OVERLAY'>('OVERLAY');

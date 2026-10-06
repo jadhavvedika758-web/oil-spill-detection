@@ -19,7 +19,6 @@ interface ThemeSettingsModalProps {
   onClose: () => void;
   currentTheme: ThemeMode;
   onSelectTheme: (theme: ThemeMode) => void;
-  isPlainEnglish?: boolean;
   onTogglePlainEnglish?: () => void;
   customBgColor?: string;
   onChangeCustomBgColor?: (color: string) => void;
@@ -30,7 +29,6 @@ export const ThemeSettingsModal: React.FC<ThemeSettingsModalProps> = ({
   onClose,
   currentTheme,
   onSelectTheme,
-  isPlainEnglish = false,
   onTogglePlainEnglish,
   customBgColor,
   onChangeCustomBgColor,
@@ -106,35 +104,6 @@ export const ThemeSettingsModal: React.FC<ThemeSettingsModalProps> = ({
             className="p-2 text-[#94a3b8] hover:text-[#dee2f4] hover:bg-[#1a263c] rounded-lg transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Plain English Mode Toggle (Key Readability Feature) */}
-        <div className="p-4 rounded-xl bg-[#162236] border border-[#2a3b50] flex items-center justify-between gap-4">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <Type className="w-4 h-4 text-[#00f2ff]" />
-              <span className="text-sm font-bold text-[#dee2f4]">Plain English / Easy Mode</span>
-              {isPlainEnglish && (
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono-data bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold">
-                  ACTIVE
-                </span>
-              )}
-            </div>
-            <p className="text-xs text-[#94a3b8]">
-              Replaces complex maritime physics jargon with simple, crystal-clear explanations and helpful tooltips.
-            </p>
-          </div>
-
-          <button
-            onClick={() => onTogglePlainEnglish?.()}
-            className={`px-4 py-2 rounded-lg font-mono-data text-xs font-bold transition-all cursor-pointer flex-shrink-0 ${
-              isPlainEnglish
-                ? 'bg-emerald-500 text-[#002022] shadow-[0_0_12px_rgba(16,185,129,0.4)]'
-                : 'bg-[#0b1220] text-[#94a3b8] border border-[#2a3b50] hover:text-[#dee2f4]'
-            }`}
-          >
-            {isPlainEnglish ? 'ON (Simplified)' : 'OFF (Technical)'}
           </button>
         </div>
 

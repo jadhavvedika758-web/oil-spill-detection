@@ -26,7 +26,6 @@ interface JudgeDemoModalProps {
   incident: SpillIncident;
   onCompleteDemo: () => void;
   onOpenReport: () => void;
-  isPlainEnglish?: boolean;
 }
 
 interface DemoStep {
@@ -44,7 +43,6 @@ export const JudgeDemoModal: React.FC<JudgeDemoModalProps> = ({
   incident,
   onCompleteDemo,
   onOpenReport,
-  isPlainEnglish = false,
 }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);

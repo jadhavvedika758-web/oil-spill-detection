@@ -22,7 +22,6 @@ interface IntelligenceBentoGridProps {
   onSelectIncident: (inc: SpillIncident) => void;
   onOpenInvestigation: () => void;
   onOpenAnalytics: () => void;
-  isPlainEnglish?: boolean;
 }
 
 export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
@@ -30,7 +29,6 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
   onSelectIncident,
   onOpenInvestigation,
   onOpenAnalytics,
-  isPlainEnglish = false,
 }) => {
   return (
     <section className="relative z-10 px-4 sm:px-6 lg:px-10 py-16 lg:py-24 bg-[#0b1220]/90 backdrop-blur-md border-t border-[#2a3b50]">
@@ -40,15 +38,13 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
         <div className="mb-12 flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#00f2ff]/30 bg-[#00f2ff]/10 mb-3 text-xs font-mono-data text-[#00f2ff] uppercase tracking-wider font-semibold">
             <Cpu className="w-4 h-4" />
-            <span>{isPlainEnglish ? 'How Our AI Protects The Ocean' : 'Autonomous Reconnaissance Architecture'}</span>
+            <span>How Our AI Protects The Ocean</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold text-[#dee2f4] tracking-tight">
-            {isPlainEnglish ? 'Four Core Pillars of Ocean Defense' : 'Intelligence Capabilities'}
+            Intelligence Capabilities
           </h2>
           <p className="text-sm sm:text-base text-[#94a3b8] mt-3 max-w-2xl leading-relaxed">
-            {isPlainEnglish
-              ? 'From radar satellite detection in space to court-certified evidence briefs, here is how we track and hold polluters accountable.'
-              : 'Comprehensive analytical tools for rapid response, oceanographic hindcasting, and definitive legal attribution in global maritime environments.'}
+            From radar satellite detection in space to court-certified evidence briefs, here is how we track and hold polluters accountable.
           </p>
         </div>
 
@@ -67,18 +63,16 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
                 <div className="flex items-center gap-2">
                   <span className="px-3 py-1 rounded-full text-xs font-mono-data bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 font-semibold">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    {isPlainEnglish ? '4 SATELLITES ACTIVE' : 'CONSTELLATION SYNCED'}
+                    SATELLITES ACTIVE
                   </span>
                 </div>
               </div>
 
               <h3 className="text-lg sm:text-xl font-bold text-[#dee2f4] mb-2">
-                {isPlainEnglish ? '1. Space Radar Surveillance' : 'Satellite Intelligence & SAR Ingestion'}
+                Satellite Intelligence & SAR Ingestion
               </h3>
               <p className="text-xs sm:text-sm text-[#94a3b8] max-w-xl leading-relaxed">
-                {isPlainEnglish
-                  ? 'Space radar passes right through heavy rain and darkness. It detects oil because oil dampens water ripples, making spills look like clear dark outlines on radar imagery.'
-                  : 'Multi-constellation Synthetic Aperture Radar (SAR) and optical data ingestion from Sentinel-1, TerraSAR-X, COSMO-SkyMed, and PAZ with automated polarimetric backscatter analysis.'}
+                Space radar passes right through heavy rain and darkness. It detects oil because oil dampens water ripples, making spills look like clear dark outlines on radar imagery.
               </p>
             </div>
 
@@ -86,19 +80,19 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
             <div className="relative z-10 mt-4 pt-4 border-t border-[#2a3b50]">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono-data text-xs">
                 <div className="p-2.5 rounded-lg bg-[#0b1220] border border-[#2a3b50]">
-                  <div className="text-[#94a3b8] text-[10px] uppercase font-bold">{isPlainEnglish ? 'RADAR BANDS' : 'SAR BANDS'}</div>
+                  <div className="text-[#94a3b8] text-[10px] uppercase font-bold">SAR BANDS</div>
                   <div className="text-[#dee2f4] font-semibold">C-Band & X-Band</div>
                 </div>
                 <div className="p-2.5 rounded-lg bg-[#0b1220] border border-[#2a3b50]">
-                  <div className="text-[#94a3b8] text-[10px] uppercase font-bold">{isPlainEnglish ? 'DETAIL RESOLUTION' : 'RESOLUTION'}</div>
+                  <div className="text-[#94a3b8] text-[10px] uppercase font-bold">RESOLUTION</div>
                   <div className="text-[#00f2ff] font-semibold">1.0m Meter-Level</div>
                 </div>
                 <div className="p-2.5 rounded-lg bg-[#0b1220] border border-[#2a3b50]">
-                  <div className="text-[#94a3b8] text-[10px] uppercase font-bold">{isPlainEnglish ? 'INGESTION SPEED' : 'DAT_RATE'}</div>
+                  <div className="text-[#94a3b8] text-[10px] uppercase font-bold">INGESTION SPEED</div>
                   <div className="text-[#dee2f4] font-semibold">4.2 TB / sec</div>
                 </div>
                 <div className="p-2.5 rounded-lg bg-[#0b1220] border border-[#2a3b50]">
-                  <div className="text-[#94a3b8] text-[10px] uppercase font-bold">{isPlainEnglish ? 'ORBIT ALTITUDE' : 'ORBIT_ALT'}</div>
+                  <div className="text-[#94a3b8] text-[10px] uppercase font-bold">ORBIT ALTITUDE</div>
                   <div className="text-emerald-400 font-semibold">693 km Space</div>
                 </div>
               </div>
@@ -114,18 +108,16 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
                 <Droplet className="w-6 h-6 text-[#00f2ff]" />
               </div>
               <h3 className="text-lg font-bold text-[#dee2f4] mb-2">
-                {isPlainEnglish ? '2. AI Oil vs. Algae Filter' : 'AI Detection & Speciation'}
+                AI Detection & Speciation
               </h3>
               <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
-                {isPlainEnglish
-                  ? 'Deep learning models distinguish real crude oil and dirty bilge water from harmless natural algae, seaweed, and wind shadows.'
-                  : 'Proprietary deep-learning models trained on thousands of confirmed marine spills. Distinguishes mineral crude and bilge slop from natural biogenic slicks.'}
+                Deep learning models distinguish real crude oil and dirty bilge water from harmless natural algae, seaweed, and wind shadows.
               </p>
             </div>
 
             <div className="relative z-10 pt-3 border-t border-[#2a3b50]">
               <div className="flex items-center justify-between text-xs font-mono-data">
-                <span className="text-[#94a3b8]">{isPlainEnglish ? 'FALSE ALARM RATE:' : 'FALSE POSITIVE RATE:'}</span>
+                <span className="text-[#94a3b8]">FALSE POSITIVE RATE:</span>
                 <span className="text-emerald-400 font-bold">&lt; 0.8% (Near Zero)</span>
               </div>
               <div className="w-full bg-[#0b1220] h-2 rounded-full overflow-hidden mt-2 border border-[#2a3b50]">
@@ -143,17 +135,15 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
                 <History className="w-6 h-6 text-[#00f2ff]" />
               </div>
               <h3 className="text-lg font-bold text-[#dee2f4] mb-2">
-                {isPlainEnglish ? '3. Ocean Drift Rewind' : 'Lagrangian Hindcast Physics'}
+                Ocean Drift Rewind
               </h3>
               <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
-                {isPlainEnglish
-                  ? 'Reverses ocean wind and current drift like a time machine to discover the exact coordinates and time the oil was first dumped.'
-                  : 'Hydrodynamic Lagrangian hindcast modeling utilizing real-time ECMWF wind vectors, CMEMS ocean currents, Stokes drift, and wave shear to trace slicks back to origin.'}
+                Hydrodynamic Lagrangian hindcast modeling utilizing real-time ECMWF wind vectors, CMEMS ocean currents, Stokes drift, and wave shear to trace slicks back to origin.
               </p>
             </div>
 
             <div className="relative z-10 pt-3 border-t border-[#2a3b50] flex items-center justify-between text-xs font-mono-data">
-              <span className="text-[#94a3b8]">{isPlainEnglish ? 'GPS REPLAY PRECISION:' : 'HINDCAST ACCURACY:'}</span>
+              <span className="text-[#94a3b8]">HINDCAST ACCURACY:</span>
               <span className="text-[#00f2ff] font-bold">±0.25 Nautical Miles</span>
             </div>
           </div>
@@ -167,18 +157,16 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
                 <Ship className="w-6 h-6 text-[#00f2ff]" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#dee2f4] mb-2">
-                {isPlainEnglish ? '4. Guilty Ship Identification' : 'AIS Kinematic Correlation Matrix'}
+                AIS Kinematic Correlation Matrix
               </h3>
               <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed mb-4">
-                {isPlainEnglish
-                  ? 'Cross-references all ship GPS transponders at that exact release spot. Catches suspicious transponder blackouts, sudden tank draft drops, and speed changes.'
-                  : 'Automated spatiotemporal cross-referencing of satellite/terrestrial AIS tracks against reconstructed spill origins. Detects deliberate AIS blackout windows and vessel draft drops.'}
+                Automated spatiotemporal cross-referencing of satellite/terrestrial AIS tracks against reconstructed spill origins. Detects deliberate AIS blackout windows and vessel draft drops.
               </p>
               <button
                 onClick={onOpenInvestigation}
                 className="inline-flex items-center gap-2 text-xs font-mono-data text-[#00f2ff] hover:underline font-bold"
               >
-                <span>{isPlainEnglish ? 'OPEN SHIP TRACKING RADAR' : 'OPEN TARGET CORRELATION MATRIX'}</span>
+                <span>OPEN SHIP TRACKING RADAR</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -188,7 +176,7 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
               <div className="flex items-center justify-between text-xs font-mono-data text-[#94a3b8] mb-2">
                 <span className="flex items-center gap-1.5 text-red-400 font-bold">
                   <Crosshair className="w-4 h-4 animate-spin" style={{ animationDuration: '6s' }} />
-                  {isPlainEnglish ? 'TARGET LOCKED' : 'RADAR TARGET LOCK'}
+                  RADAR TARGET LOCK
                 </span>
                 <span className="text-emerald-400 text-[10px] font-bold">LIVE TRACK</span>
               </div>
@@ -221,19 +209,17 @@ export const IntelligenceBentoGrid: React.FC<IntelligenceBentoGridProps> = ({
             <div>
               <h3 className="text-base sm:text-lg font-bold text-[#dee2f4] flex items-center gap-2">
                 <ShieldAlert className="w-5 h-5 text-red-400" />
-                {isPlainEnglish ? 'Active Monitored Oil Spills & Targets' : 'Active Maritime Pollution Surveillance Incidents'}
+                Active Maritime Pollution Surveillance Incidents
               </h3>
               <p className="text-xs text-[#94a3b8] mt-0.5">
-                {isPlainEnglish
-                  ? 'Real-time satellite feeds detecting and identifying guilty ships across international waters'
-                  : 'Real-time multi-satellite SAR detection queue with automated hydrodynamic attribution'}
+                Real-time satellite feeds detecting and identifying guilty ships across international waters
               </p>
             </div>
             <button
               onClick={onOpenInvestigation}
               className="btn-primary px-4 py-2 rounded-xl text-xs font-mono-data uppercase flex items-center gap-1.5 font-bold cursor-pointer"
             >
-              <span>{isPlainEnglish ? 'Open Interactive Radar' : 'Launch Theater'}</span>
+              <span>Open Interactive Radar</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

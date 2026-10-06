@@ -35,7 +35,6 @@ interface NavbarProps {
   onOpenSimulation: () => void;
   onOpenHowItWorks: () => void;
   onOpenThemeSettings: () => void;
-  isPlainEnglish: boolean;
   onTogglePlainEnglish: () => void;
   currentTheme: ThemeMode;
   onSelectTheme: (theme: ThemeMode) => void;
@@ -52,7 +51,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSimulation,
   onOpenHowItWorks,
   onOpenThemeSettings,
-  isPlainEnglish,
   onTogglePlainEnglish,
   currentTheme,
   onSelectTheme,
@@ -103,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 OilTrace AI
               </span>
               <span className="text-[9px] font-mono-data text-[#94a3b8] tracking-widest uppercase -mt-1">
-                {isPlainEnglish ? 'Oil Spill Tracker' : 'Mission Control'}
+                Oil Spill Tracker
               </span>
             </div>
           </button>
@@ -130,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : 'text-[#94a3b8] hover:text-[#00f2ff]'
             }`}
           >
-            <span>{isPlainEnglish ? 'Overview' : 'Dashboard'}</span>
+            <span>Dashboard</span>
             {activeTab === 'dashboard' && (
               <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#00f2ff] shadow-[0_0_8px_#00f2ff]" />
             )}
@@ -145,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Satellite className="w-3.5 h-3.5 text-[#00f2ff]" />
-            <span>{isPlainEnglish ? 'Satellite Scan' : 'Satellite CV'}</span>
+            <span>Satellite Scan</span>
             {activeTab === 'satellite' && (
               <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#00f2ff] shadow-[0_0_8px_#00f2ff]" />
             )}
@@ -159,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : 'text-[#94a3b8] hover:text-[#00f2ff]'
             }`}
           >
-            <span>{isPlainEnglish ? 'Live Radar & Ships' : 'Investigation'}</span>
+            <span>Investigation</span>
             <span className="px-1.5 py-0.2 rounded text-[9px] font-mono-data bg-red-500/20 text-red-300 border border-red-500/40">
               LIVE
             </span>
@@ -176,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : 'text-[#94a3b8] hover:text-[#00f2ff]'
             }`}
           >
-            <span>{isPlainEnglish ? 'Charts' : 'Analytics'}</span>
+            <span>Analytics</span>
             {activeTab === 'analytics' && (
               <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#00f2ff] shadow-[0_0_8px_#00f2ff]" />
             )}
@@ -190,7 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : 'text-[#94a3b8] hover:text-[#00f2ff]'
             }`}
           >
-            <span>{isPlainEnglish ? 'Drift Studio' : 'Simulation'}</span>
+            <span>Simulation</span>
             {activeTab === 'simulation' && (
               <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#00f2ff] shadow-[0_0_8px_#00f2ff]" />
             )}
@@ -204,7 +202,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : 'text-[#94a3b8] hover:text-[#00f2ff]'
             }`}
           >
-            <span>{isPlainEnglish ? 'Grid' : 'System'}</span>
+            <span>System</span>
             {activeTab === 'system' && (
               <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#00f2ff] shadow-[0_0_8px_#00f2ff]" />
             )}
@@ -213,20 +211,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Trailing Actions */}
         <div className="flex items-center gap-2 sm:gap-3">
-          
-          {/* Plain English Toggle Chip */}
-          <button
-            onClick={onTogglePlainEnglish}
-            className={`px-2.5 py-1 rounded-lg text-xs font-mono-data flex items-center gap-1.5 transition-all cursor-pointer ${
-              isPlainEnglish
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-[0_0_8px_rgba(16,185,129,0.3)]'
-                : 'bg-[#1a263c] text-[#94a3b8] hover:text-[#dee2f4] border border-[#2a3b50]'
-            }`}
-            title="Toggle between Easy (Plain English) and Technical Mode"
-          >
-            <Type className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">{isPlainEnglish ? 'Easy Mode: ON' : 'Easy Mode'}</span>
-          </button>
 
           {/* Theme & Background Switcher */}
           <button

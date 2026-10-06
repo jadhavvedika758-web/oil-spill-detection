@@ -26,13 +26,11 @@ import { rankVesselsByAttribution } from '../services/aisCorrelationEngine';
 interface SimulationStudioProps {
   onInjectCustomIncident: (newIncident: SpillIncident) => void;
   onOpenInvestigation: () => void;
-  isPlainEnglish?: boolean;
 }
 
 export const SimulationStudio: React.FC<SimulationStudioProps> = ({
   onInjectCustomIncident,
   onOpenInvestigation,
-  isPlainEnglish = false,
 }) => {
   // Preset scenario configurations
   const [selectedPreset, setSelectedPreset] = useState<'NORTH_SEA' | 'MALACCA' | 'HORMUZ' | 'GOM' | 'CUSTOM'>('NORTH_SEA');
